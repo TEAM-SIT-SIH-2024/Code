@@ -25,7 +25,7 @@ This project is a Hospital Management System (HMS) built using the MERN stack (M
 #### Clone the Repository
 
 ```bash
-git clone https://github.com/TEAM-SIT-SIH-2024/Code.git
+git clone https://github.com/yourUserName/Code.git
 ```
 
 #### Backend Setup
