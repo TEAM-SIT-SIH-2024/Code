@@ -1,5 +1,8 @@
+import Login from "./components/Login";
 function App() {
-  return <></>;
+  return <>
+  <Login></Login>
+  </>;
 }
 
 export default App;
