@@ -1,10 +1,12 @@
-const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config");
+const jwt = require("jsonwebtoken");
 
-function adminMiddleware(req, res, next) {
+function userMiddleware(req, res, next) {
   const jwtToken = req.headers.authorization;
+
   try {
     const decodedValue = jwt.verify(jwtToken, JWT_SECRET);
+
     if (decodedValue.username) {
       req.username = decodedValue.username;
       next();
@@ -20,4 +22,4 @@ function adminMiddleware(req, res, next) {
   }
 }
 
-module.exports = adminMiddleware;
+module.exports = userMiddleware;
