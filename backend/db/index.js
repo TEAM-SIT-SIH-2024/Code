@@ -30,12 +30,24 @@ const AppointmentsSchema = new mongoose.Schema({
   phone: Number,
 });
 
+const CitiesSchema = new mongoose.Schema({
+  name: String,
+  hospitals: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Admin",
+    },
+  ],
+});
+
 const Admin = mongoose.model("Admin", AdminSchema);
 const User = mongoose.model("User", UserSchema);
 const Appointments = mongoose.model("Appointments", AppointmentsSchema);
+const Cities = mongoose.model("Cities", CitiesSchema);
 
 module.exports = {
   Admin,
   User,
   Appointments,
+  Cities,
 };
