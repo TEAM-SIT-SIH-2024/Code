@@ -1,14 +1,14 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import React from 'react'
 import './index.css';
-{/*import {useHistory} from 'react-router-dom'*/};
+import { useNavigate } from 'react-router-dom';
+
 
 function Login() {
-    {/*const history= useHistory();*/}
-    const handleOnClick=()=>{
-        history.push('/SignUp');
+    const navigate=useNavigate();
+    function handleClick(){
+        navigate("/SignUp");
     }
   return (
     <div>
@@ -29,7 +29,7 @@ function Login() {
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" placeholder="Enter password" required/>
                         </div>
-                        <button type="submit" onClick={handleOnClick} class="btn btn-dark btn-block mx-2">SignUp</button>
+                        <button onClick={handleClick} type="submit"  class="btn btn-dark btn-block mx-2">SignUp</button>
                         <button type="submit" class="btn btn-dark btn-block mx-3">Login</button>
                     </form>
                 </div>
