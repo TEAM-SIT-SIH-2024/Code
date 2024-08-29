@@ -46,12 +46,15 @@ router.post("/signin", async (req, res) => {
 
     const user = await User.findOne({ username, password });
     if (!user) {
-      return res
-        .status(400)
-        .json({ message: "Incorrect username or password" });
+      return res.status(400).json({ message: "Incorrect username or password" });
     }
+    const payload = {
+      id: user._id,
+      username: user.username,
+      role: "user",
+    };
 
-    const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "1h" });
 
     res.json({ token });
   } catch (error) {
@@ -62,6 +65,8 @@ router.post("/signin", async (req, res) => {
   }
 });
 
+
+
 router.get("/cities", async (req, res) => {
   try {
     const { city } = req.query;
@@ -69,6 +74,9 @@ router.get("/cities", async (req, res) => {
 
     if (city) {
       cityResult = await Cities.findOne({ name: city });
+      if (!cityResult) {
+        return res.status(404).json({ message: "City not found" });
+      }      
     }
 
     res.json({

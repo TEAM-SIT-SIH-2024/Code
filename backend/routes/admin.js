@@ -49,12 +49,16 @@ router.post("/signin", async (req, res) => {
 
     const user = await Admin.findOne({ username, password });
     if (!user) {
-      return res
-        .status(400)
-        .json({ message: "Incorrect username or password" });
+      return res.status(400).json({ message: "Incorrect username or password" });
     }
 
-    const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: "1h" });
+    const payload = {
+      id: user._id,
+      username: user.username,
+      role: "admin",
+    };
+
+    const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "1h" });
 
     res.json({ token });
   } catch (error) {
@@ -64,5 +68,6 @@ router.post("/signin", async (req, res) => {
     res.status(500).json({ msg: "Internal server error", error });
   }
 });
+
 
 module.exports = router;
