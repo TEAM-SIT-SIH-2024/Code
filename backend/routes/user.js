@@ -42,9 +42,9 @@ router.post("/signup", async (req, res) => {
 
 router.post("/signin", async (req, res) => {
   try {
-    const { username, password } = signinSchema.parse(req.body);
+    const { username, password, city } = signinSchema.parse(req.body);
 
-    const user = await User.findOne({ username, password });
+    const user = await User.findOne({ username, password , city});
     if (!user) {
       return res.status(400).json({ message: "Incorrect username or password" });
     }
@@ -70,21 +70,21 @@ router.post("/signin", async (req, res) => {
 router.get("/cities", async (req, res) => {
   try {
     const { city } = req.query;
-    let cityResult;
 
     if (city) {
-      cityResult = await Cities.findOne({ name: city });
+      const cityResult = await Cities.findOne({ name: city });
       if (!cityResult) {
         return res.status(404).json({ message: "City not found" });
-      }      
+      }
+      return res.json({ city: cityResult });
     }
+    const cities = await Cities.find();
+    res.json({ cities });
 
-    res.json({
-      city: cityResult || "City not found",
-    });
   } catch (error) {
     res.status(500).json({ message: "Internal server error", error });
   }
 });
+
 
 module.exports = router;

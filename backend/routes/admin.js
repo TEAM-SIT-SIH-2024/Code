@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const adminMiddleware = require("../middlewares/admin");
-const { Admin, Appointments } = require("../db");
+const { Admin, Appointments , Cities} = require("../db");
 const { JWT_SECRET } = require("../config");
 const router = Router();
 const jwt = require("jsonwebtoken");
@@ -21,18 +21,30 @@ router.post("/signup", async (req, res) => {
   try {
     const { username, password, city } = signupSchema.parse(req.body);
 
-    const user = await Admin.findOne({ username });
-    if (user) {
+    const existingAdmin = await Admin.findOne({ username });
+    if (existingAdmin) {
       return res.status(400).json({ msg: "Admin already exists" });
     }
 
-    await Admin.create({
+    const newAdmin = await Admin.create({
       username,
       password,
       beds: 0,
       city,
       opdTime: "",
     });
+
+    let cityEntry = await Cities.findOne({ name: city });
+
+    if (!cityEntry) {
+      cityEntry = await Cities.create({
+        name: city,
+        hospitals: [newAdmin._id],
+      });
+    } else {
+      cityEntry.hospitals.push(newAdmin._id);
+      await cityEntry.save();
+    }
 
     res.json({ message: "Admin created successfully" });
   } catch (error) {
@@ -42,6 +54,7 @@ router.post("/signup", async (req, res) => {
     res.status(500).json({ msg: "Internal server error", error });
   }
 });
+
 
 router.post("/signin", async (req, res) => {
   try {
