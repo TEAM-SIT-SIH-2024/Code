@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 const { userMiddleware } = require("../middlewares/user");
-const { User, Appointments, Cities } = require("../db");
+const { User, Appointments, Cities, Admin } = require("../db");
 const { JWT_SECRET } = require("../config");
 const jwt = require("jsonwebtoken");
 const z = require("zod");
@@ -86,5 +86,14 @@ router.get("/cities", async (req, res) => {
   }
 });
 
+router.post("/hospitals/details", async (req, res) => {
+  try {
+    const hospitalIds = req.body.ids;
+    const hospitals = await Admin.find({ _id: { $in: hospitalIds } });
+    res.json({ hospitals });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching hospital details" });
+  }
+});
 
 module.exports = router;
