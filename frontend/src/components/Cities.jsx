@@ -45,7 +45,6 @@ export function Cities({ requiredCity }) {
       if (response.ok) {
         const data = await response.json();
         alert("Appointment booked successfully!");
-        // Reset the form and selected hospital
         setAppointmentDetails({
           name: "",
           purpose: "",
