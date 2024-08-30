@@ -132,6 +132,9 @@ router.post("/hospital/appointment", userMiddleware, async (req, res) => {
       $push: { appointments: appointment._id },
     });
 
+    hospital.appointments.push(appointment._id);
+    await hospital.save();
+
     res
       .status(201)
       .json({ message: "Appointment booked successfully", appointment });

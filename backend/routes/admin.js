@@ -104,6 +104,27 @@ router.post("/signin", async (req, res) => {
   }
 });
 
+router.delete("/appointments/:id", adminMiddleware, async (req, res) => {
+  try {
+    const appointmentId = req.params.id;
+
+    const appointment = await Appointments.findById(appointmentId);
+    if (!appointment) {
+      return res.status(404).json({ message: "Appointment not found" });
+    }
+
+    await Admin.findByIdAndUpdate(appointment.hospital, {
+      $pull: { appointments: appointmentId },
+    });
+
+    await Appointments.findByIdAndDelete(appointmentId);
+
+    res.json({ message: "Appointment deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error", error });
+  }
+});
+
 router.post(
   "/hospital/:hospitalId/admit",
   adminMiddleware,

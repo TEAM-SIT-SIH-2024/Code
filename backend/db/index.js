@@ -11,6 +11,9 @@ const AdminSchema = new mongoose.Schema({
   city: { type: String, required: true },
   opdTime: { type: String, required: true },
   patients: [patientSchema],
+  appointments: [
+    { type: mongoose.Schema.Types.ObjectId, ref: "AppointmentQueue" },
+  ],
 });
 
 const UserSchema = new mongoose.Schema({
