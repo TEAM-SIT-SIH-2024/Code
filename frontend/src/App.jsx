@@ -7,19 +7,17 @@ import Help from "./components/Help";
 
 function App() {
   return <>
-  {/*<Login></Login>*/}
-  {/*<SignUP></SignUP>*/}
- <Help></Help>
+  
+ {/* <Help></Help> */}
 
  {/*<Home></Home>*/}
   {/*<OPDQueue></OPDQueue>*/}
-  {/*<Routes>*/}
-    {/*<Route path="/" element={<Login/>}/>*/}
-    {/*<Route path="/SignUp" element={<SignUP/>}/>*/}
-   
-
-   
-  {/*</Routes>*/}
+  {/* {<SignUP></SignUP>} */}
+  {/* <Login></Login> */}
+  <Routes>
+    <Route path="/" element={<Login></Login>}/>
+    <Route path="/SignUp" element={<SignUP/>}/>
+  </Routes>
   </>;
 }
 

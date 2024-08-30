@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-
+import { Helmet } from 'react-helmet';
+import './SignUp.css';
 function Signup() {
-  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
   });
-
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -19,18 +18,13 @@ function Signup() {
     });
   };
 
-  
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    
     if (formData.password !== formData.confirmPassword) {
       alert('Passwords do not match!');
       return;
     }
-
     console.log('Form Data:', formData);
-
     setFormData({
       name: '',
       email: '',
@@ -40,71 +34,60 @@ function Signup() {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <div className="card">
-            <div className="card-header text-center">
-              Sign Up
+    <div className="section">
+      <Helmet>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      </Helmet>
+      <div className="form-box">
+        <div className="form-value">
+          <form onSubmit={handleSubmit}>
+            <h2>Sign Up</h2>
+            <div className="inputbox">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+              />
+              <label>Name</label>
             </div>
-            <div className="card-body">
-              <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label htmlFor="name">Name</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Enter your name"
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Enter your email"
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="password">Password</label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    id="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    placeholder="Enter password"
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="confirmPassword">Confirm Password</label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    value={formData.confirmPassword}
-                    onChange={handleInputChange}
-                    placeholder="Confirm your password"
-                    required
-                  />
-                </div>
-                <button type="submit" className="btn btn-dark btn-block">Sign Up</button>
-              </form>
+            <div className="inputbox">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+              />
+              <label>Email</label>
             </div>
-          </div>
+            <div className="inputbox">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                required
+              />
+              <label>Password</label>
+            </div>
+            <div className="inputbox">
+              <input
+                type="password"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleInputChange}
+                required
+              />
+              <label>Confirm Password</label>
+            </div>
+            <button type="submit" className="btn btn-dark btn-block">Sign Up</button>
+          </form>
         </div>
       </div>
     </div>

@@ -1,0 +1,12 @@
+.form-box{
+    position: relative;
+    width: 400px;
+    height: 550px;
+    background: transparent;
+    border: none;
+    border-radius: 20px;
+    backdrop-filter: blur(15px) brightness(80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
