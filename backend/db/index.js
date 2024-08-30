@@ -1,20 +1,17 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(
-  "mongodb+srv://admin:tL8mBWGUkmz2720S@cluster0.scziuv1.mongodb.net/HospitalManagementSystem"
-);
-
 const AdminSchema = new mongoose.Schema({
-  username: String,
-  password: String,
-  beds: Number,
-  city: String,
-  opdTime: String,
+  username: { type: String, required: true },
+  password: { type: String, required: true },
+  beds: { type: Number, required: true },
+  city: { type: String, required: true },
+  opdTime: { type: String, required: true },
 });
 
+
 const UserSchema = new mongoose.Schema({
-  username: String,
-  password: String,
+  username: { type: String, required: true },
+  password: { type: String, required: true },
   appointments: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -23,15 +20,27 @@ const UserSchema = new mongoose.Schema({
   ],
 });
 
+
 const AppointmentsSchema = new mongoose.Schema({
-  name: String,
-  purpose: String,
-  time: String,
-  phone: Number,
+  name: { type: String, required: true },
+  purpose: { type: String, required: true },
+  time: { type: String, required: true },
+  phone: { type: String, required: true },
+  hospital: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Admin",
+    required: true,
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
 });
 
+
 const CitiesSchema = new mongoose.Schema({
-  name: String,
+  name: { type: String, required: true },
   hospitals: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -39,6 +48,7 @@ const CitiesSchema = new mongoose.Schema({
     },
   ],
 });
+
 
 const Admin = mongoose.model("Admin", AdminSchema);
 const User = mongoose.model("User", UserSchema);
