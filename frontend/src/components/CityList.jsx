@@ -22,7 +22,7 @@ export function CityList({ city }) {
             {filteredCities.length > 0 ? (
               filteredCities.map((c) => (
                 <li key={c._id}>
-                  <Cities requiredCity={c.name} />
+                  <Cities requiredCity={c} />
                 </li>
               ))
             ) : (
