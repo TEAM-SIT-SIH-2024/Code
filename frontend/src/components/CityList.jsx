@@ -2,7 +2,7 @@ import { useRecoilValueLoadable } from "recoil";
 import { citiesListAtom } from "../store/atoms/CityAtom";
 import { Cities } from "./Cities";
 
-export function CityList() {
+export function CityList({ city }) {
   const citiesLoadable = useRecoilValueLoadable(citiesListAtom);
 
   switch (citiesLoadable.state) {
@@ -11,15 +11,23 @@ export function CityList() {
 
     case "hasValue":
       const cities = citiesLoadable.contents;
+      const filteredCities = city
+        ? cities.filter((c) => c.name.toLowerCase() === city.toLowerCase())
+        : cities;
+
       return (
         <div>
-          <h3>All Cities</h3>
+          <h3>{city ? `Results for "${city}"` : "All Cities"}</h3>
           <ul>
-            {cities.map((city) => (
-              <li key={city._id}>
-                <Cities requiredCity={city.name}></Cities>
-              </li>
-            ))}
+            {filteredCities.length > 0 ? (
+              filteredCities.map((c) => (
+                <li key={c._id}>
+                  <Cities requiredCity={c.name} />
+                </li>
+              ))
+            ) : (
+              <li>No results found for "{city}".</li>
+            )}
           </ul>
         </div>
       );

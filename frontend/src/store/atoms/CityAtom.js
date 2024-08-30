@@ -10,10 +10,15 @@ export const citiesAtomFamily = atomFamily({
         const res = await axios.get(
           `http://localhost:3000/user/cities?city=${city}`
         );
+
+        if (res.status === 404) {
+          return { error: "City not found", hospitals: [] };
+        }
+
         return res.data.city;
       } catch (error) {
         console.error("Error fetching city data:", error);
-        return { hospitals: [] };
+        return { error: "Error fetching data", hospitals: [] };
       }
     },
   }),
@@ -26,10 +31,15 @@ export const citiesListAtom = atom({
     get: async () => {
       try {
         const res = await axios.get("http://localhost:3000/user/cities");
+
+        if (res.status === 404) {
+          return { error: "No cities found", cities: [] };
+        }
+
         return res.data.cities;
       } catch (error) {
         console.error("Error fetching cities:", error);
-        return [];
+        return { error: "Error fetching data", cities: [] };
       }
     },
   }),

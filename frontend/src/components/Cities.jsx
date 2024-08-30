@@ -11,9 +11,13 @@ export function Cities({ requiredCity }) {
     case "hasValue":
       const city = cityLoadable.contents;
 
+      if (city.error) {
+        return <div>{city.error}</div>;
+      }
+
       return (
         <div>
-          <h3>{city.name.toUpperCase()}</h3>
+          <h3>{city.name}</h3>
           <div>This city currently has {city.hospitals.length} hospitals</div>
           <button>View</button>
         </div>
