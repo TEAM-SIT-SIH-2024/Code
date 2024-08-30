@@ -1,25 +1,28 @@
-const { JWT_SECRET } = require("../config");
 const jwt = require("jsonwebtoken");
+const { JWT_SECRET } = require("../config");
 
 function userMiddleware(req, res, next) {
   const jwtToken = req.headers.authorization;
 
+  if (!jwtToken) {
+    return res.status(401).json({
+      message: "No token provided",
+    });
+  }
+
   try {
     const decodedValue = jwt.verify(jwtToken, JWT_SECRET);
-
-    if (decodedValue.username) {
-      req.username = decodedValue.username;
+    if (decodedValue.role === "user") {
+      req.user = decodedValue;
       next();
     } else {
-      res.status(403).json({
-        msg: "You are not authenticated",
-      });
+      res.status(403).json({ message: "Access denied" });
     }
   } catch (e) {
-    res.json({
-      msg: "Incorrect inputs",
+    res.status(403).json({
+      message: "Failed to authenticate token",
     });
   }
 }
 
-module.exports = { userMiddleware };
+module.exports = userMiddleware;

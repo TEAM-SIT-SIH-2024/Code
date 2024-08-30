@@ -1,5 +1,9 @@
 const mongoose = require("mongoose");
 
+mongoose.connect(
+  "mongodb+srv://admin:tL8mBWGUkmz2720S@cluster0.scziuv1.mongodb.net/HospitalManagementSystem"
+);
+
 const AdminSchema = new mongoose.Schema({
   username: { type: String, required: true },
   password: { type: String, required: true },
@@ -7,7 +11,6 @@ const AdminSchema = new mongoose.Schema({
   city: { type: String, required: true },
   opdTime: { type: String, required: true },
 });
-
 
 const UserSchema = new mongoose.Schema({
   username: { type: String, required: true },
@@ -19,7 +22,6 @@ const UserSchema = new mongoose.Schema({
     },
   ],
 });
-
 
 const AppointmentsSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -38,7 +40,6 @@ const AppointmentsSchema = new mongoose.Schema({
   },
 });
 
-
 const CitiesSchema = new mongoose.Schema({
   name: { type: String, required: true },
   hospitals: [
@@ -48,7 +49,6 @@ const CitiesSchema = new mongoose.Schema({
     },
   ],
 });
-
 
 const Admin = mongoose.model("Admin", AdminSchema);
 const User = mongoose.model("User", UserSchema);

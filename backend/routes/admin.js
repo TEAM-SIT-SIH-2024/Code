@@ -1,37 +1,52 @@
-const { Router } = require("express");
-const adminMiddleware = require("../middlewares/admin");
-const { Admin, Appointments , Cities} = require("../db");
-const { JWT_SECRET } = require("../config");
-const router = Router();
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { Router } = require("express");
 const z = require("zod");
+const { Admin, Appointments, Cities } = require("../db");
+const { JWT_SECRET } = require("../config");
+
+const router = Router();
 
 const signupSchema = z.object({
   username: z.string().min(1, "Username is required"),
   password: z.string().min(6, "Password must be at least 6 characters long"),
   city: z.string().min(1, "City is required"),
+  beds: z.string().regex(/^\d+$/, "Beds must be a valid number"),
+  opdTime: z.string().min(1, "OPD Time is required"),
 });
 
 const signinSchema = z.object({
   username: z.string().min(1, "Username is required"),
   password: z.string().min(6, "Password must be at least 6 characters long"),
+  city: z.string().min(1, "City is required"),
 });
 
 router.post("/signup", async (req, res) => {
   try {
-    const { username, password, city } = signupSchema.parse(req.body);
+    const { username, password, city, beds, opdTime } = signupSchema.parse(
+      req.body
+    );
 
-    const existingAdmin = await Admin.findOne({ username });
+    const existingAdmin = await Admin.findOne({
+      username: username + " , " + city,
+    });
     if (existingAdmin) {
       return res.status(400).json({ msg: "Admin already exists" });
     }
 
+    const bedsNumber = parseInt(beds);
+    if (isNaN(bedsNumber)) {
+      return res.status(400).json({ msg: "Invalid value for beds" });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     const newAdmin = await Admin.create({
-      username,
-      password,
-      beds: 0,
+      username: username + " , " + city,
+      password: hashedPassword,
+      beds: bedsNumber,
       city,
-      opdTime: "",
+      opdTime,
     });
 
     let cityEntry = await Cities.findOne({ name: city });
@@ -55,14 +70,15 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-
 router.post("/signin", async (req, res) => {
   try {
-    const { username, password } = signinSchema.parse(req.body);
+    const { username, password, city } = signinSchema.parse(req.body);
 
-    const user = await Admin.findOne({ username, password });
-    if (!user) {
-      return res.status(400).json({ message: "Incorrect username or password" });
+    const user = await Admin.findOne({ username: username + " , " + city });
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+      return res
+        .status(400)
+        .json({ message: "Incorrect username or password" });
     }
 
     const payload = {
@@ -81,6 +97,5 @@ router.post("/signin", async (req, res) => {
     res.status(500).json({ msg: "Internal server error", error });
   }
 });
-
 
 module.exports = router;
