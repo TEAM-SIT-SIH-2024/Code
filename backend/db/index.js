@@ -10,6 +10,7 @@ const AdminSchema = new mongoose.Schema({
   beds: { type: Number, required: true },
   city: { type: String, required: true },
   opdTime: { type: String, required: true },
+  patients: [patientSchema],
 });
 
 const UserSchema = new mongoose.Schema({
@@ -38,6 +39,7 @@ const AppointmentsSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
+  expired: { type: Boolean, default: false },
 });
 
 const CitiesSchema = new mongoose.Schema({
@@ -50,14 +52,46 @@ const CitiesSchema = new mongoose.Schema({
   ],
 });
 
+const patientSchema = new mongoose.Schema({
+  fullName: { type: String, required: true },
+  age: { type: Number, required: true },
+  gender: { type: String, required: true },
+  contactInfo: {
+    phone: { type: String, required: true },
+    email: { type: String },
+    address: { type: String, required: true },
+  },
+  emergencyContact: {
+    name: { type: String, required: true },
+    relationship: { type: String, required: true },
+    phone: { type: String, required: true },
+  },
+  medicalHistory: { type: String },
+  admissions: [
+    {
+      admissionDate: { type: Date, default: Date.now },
+      department: { type: String, required: true },
+      doctorInCharge: { type: String, required: true },
+      reasonForAdmission: { type: String, required: true },
+      bed: { type: String, required: true },
+      medications: [{ type: String }],
+      dischargeDate: { type: Date },
+    },
+  ],
+});
+
 const Admin = mongoose.model("Admin", AdminSchema);
 const User = mongoose.model("User", UserSchema);
 const Appointments = mongoose.model("Appointments", AppointmentsSchema);
 const Cities = mongoose.model("Cities", CitiesSchema);
+const Patient = mongoose.model("Patient", patientSchema);
+const Admission = mongoose.model("Admission", admissionSchema);
 
 module.exports = {
   Admin,
   User,
   Appointments,
   Cities,
+  Patient,
+  Admission,
 };
