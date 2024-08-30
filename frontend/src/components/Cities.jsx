@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRecoilValueLoadable, useRecoilState } from "recoil";
 import { hospitalDetailsSelector } from "../store/selectors/HospitalDetailsSelector";
 import { selectedHospitalAtom, appointmentDetailsAtom } from "../store/atoms/AppointmentAtom";
-import { citiesListAtom } from "../store/atoms/CityAtom"; // Import the atom to get all cities
+import { citiesListAtom } from "../store/atoms/CityAtom";
 
 export function Cities({ requiredCity }) {
   const [viewHospitals, setViewHospitals] = useState(false);
@@ -11,7 +11,7 @@ export function Cities({ requiredCity }) {
   
   const hospitalIds = requiredCity.hospitals;
   const hospitalDetailsLoadable = useRecoilValueLoadable(hospitalDetailsSelector(hospitalIds));
-  const citiesLoadable = useRecoilValueLoadable(citiesListAtom); // Load all cities
+  const citiesLoadable = useRecoilValueLoadable(citiesListAtom);
 
   const handleViewClick = () => {
     setViewHospitals(true);
@@ -34,7 +34,11 @@ export function Cities({ requiredCity }) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`, // Assuming the token is stored in localStorage
+          Authorization: `Bearer ${localStorage.getItem("token")}`, 
+//           const token = response.data.token;
+
+// // Store the token in localStorage
+// localStorage.setItem("token", token);
         },
         body: JSON.stringify({
           ...appointmentDetails,
