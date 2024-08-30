@@ -4,6 +4,12 @@ const { Router } = require("express");
 const z = require("zod");
 const { Admin, Appointments, Cities } = require("../db");
 const { JWT_SECRET } = require("../config");
+const adminMiddleware = require("../middlewares/admin");
+const {
+  admitPatientToHospital,
+  getPatientsByHospital,
+  dischargePatientFromHospital,
+} = require("../controllers/admissionController");
 
 const router = Router();
 
@@ -97,5 +103,21 @@ router.post("/signin", async (req, res) => {
     res.status(500).json({ msg: "Internal server error", error });
   }
 });
+
+router.post(
+  "/hospital/:hospitalId/admit",
+  adminMiddleware,
+  admitPatientToHospital
+);
+router.get(
+  "/hospital/:hospitalId/patients",
+  adminMiddleware,
+  getPatientsByHospital
+);
+router.delete(
+  "/hospital/:hospitalId/patient/:patientId/discharge",
+  adminMiddleware,
+  dischargePatientFromHospital
+);
 
 module.exports = router;

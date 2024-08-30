@@ -85,7 +85,6 @@ const User = mongoose.model("User", UserSchema);
 const Appointments = mongoose.model("Appointments", AppointmentsSchema);
 const Cities = mongoose.model("Cities", CitiesSchema);
 const Patient = mongoose.model("Patient", patientSchema);
-const Admission = mongoose.model("Admission", admissionSchema);
 
 module.exports = {
   Admin,
@@ -93,5 +92,4 @@ module.exports = {
   Appointments,
   Cities,
   Patient,
-  Admission,
 };
