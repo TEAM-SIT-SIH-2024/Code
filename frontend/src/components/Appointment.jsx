@@ -26,59 +26,66 @@ const HospitalAppointment = () => {
     };
 
     return (
-        <div >
+        <div id="appointment">
         <div className='appointment-container'>
              {/* <img src="./src/components/Appoint.jpg" />*/}
             <h2>Book an Appointment</h2>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label></label>
+                <div  className="form-group">
+                    <label htmlFor="name"></label>
+                    
                     <input
                         type="text"
                         name="name"
                         value={formData.name}
+                        id="name"
                         onChange={handleChange}
-                        placeholder='Enter Your Name'
+                        placeholder='Name'
                         required
                     />
+                    <i class='bx bx-user'></i>
                 </div>
-                <div>
-                    <label>Date:</label>
+                <div  className="form-group">
+                    <label htmlFor="date"></label>
                     <input
                         type="date"
                         name="date"
+                        id="date"
                         value={formData.date}
                         onChange={handleChange}
                         required
                     />
                 </div>
+
                 <div className="form-group">
-                    <label htmlFor="phone"></label>
+                    <label htmlFor="phone "></label>
                     <input
                         type="tel"
                         id="phone"
                         name="phone"
                         className="phone-input" // Ensures correct styling
-                        placeholder="Enter your phone number"
+                        placeholder='Phone Number'
                         value={formData.phone}
                         onChange={handleChange}
                         required
                         pattern="[0-9]{10}" // Example pattern for a 10-digit phone number
                         
                     />
+                    <i class='bx bx-phone'></i>
                 </div>
-                <div>
+                <div  className="form-group">
                     <label></label>
                     <textarea
                         name="purpose"
+                        
                         value={formData.symptoms}
                         onChange={handleChange}
-                         placeholder="Enter The Purpose"
+                         placeholder="Purpose"
                         required
                     />
                 </div>
               
-                <button type="submit">Submit</button>
+                <button type="submit" className='form-group btn'>Submit</button>
             </form>
         </div>
         </div>

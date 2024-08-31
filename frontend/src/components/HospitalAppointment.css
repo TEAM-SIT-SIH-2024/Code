@@ -1,9 +1,11 @@
 /* Basic resets */
-body {
-    font-family: Arial, sans-serif;
+@import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+ #appointment{
+    /* font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    padding: 0;
+    padding: 0; */
     display: flex;
     background-image: url('./src/components/Book-An-Appointment-Page.jpg'); 
     justify-content: center;
@@ -16,13 +18,20 @@ body {
     backdrop-filter: blur(4px);
 }
 
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
 .appointment-container {
-    border: 3px solid #020202;
-    border-radius: 25px;
-    
+    border: 5px solid #020202;
+
+    border-radius: 50px;
     box-shadow: 0 2px 4px rgba(26, 26, 26, 0.1);
     padding: 20px;
-    width: 400px;
+    width: 420px;
     text-align: center;
     backdrop-filter: blur(6px);
     position: relative;
@@ -31,6 +40,46 @@ body {
 h2 {
     color: #201d1d;
     margin-bottom: 20px;
+    font-size:36px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.appointment-container .form-group{
+    position: relative;
+    width:100%;
+    height:50px;
+   margin: 30px 0;
+}
+
+div .form-group input{
+ width:100%;
+ height:100%;
+ border:none;
+ border:2px solid rgba(255,255,255,-2);
+ outline: none;
+ border-radius: 100px;
+padding: 20px;
+}
+
+div .form-group textarea{
+    width:100%;
+    height:200%;
+    border:none;
+    border:2px solid rgba(255,255,255,-2);
+    outline: none;
+   }
+
+.appointment-container input  #date::placeholder{
+    color: grey;
+}
+
+.form-group i{
+    position: absolute;
+    right: 20px;
+    top:50%;
+    transform: translateY(14%);
+    font-size: 20px;
 }
 
 .appointment-form {
@@ -38,8 +87,8 @@ h2 {
     flex-direction: column;
 }
 
+
 .form-group {
-   
     margin-bottom: 15px;
     text-align: left;
 }
@@ -47,7 +96,7 @@ h2 {
 label {
     margin-bottom: 5px;
     display: block;
-     color: #2f2e2e;
+    color: #2f2e2e;
 }
 
 input[type="text"],
@@ -66,24 +115,43 @@ textarea {
     resize: vertical;
 }
 
-.submit-button {
-    background-color: #28a745;
+/* .submit-button {
+    width:100%;
+    height:45px;
     color: white;
+    border:none;
+    outline: none;
+    border-radius: 100px;
     padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
+    
+} */
+ .appointment-container .btn{
+    width:50%;
+    height:45px;
+    color: rgb(20, 19, 19);
+    background-color: white;
+    outline: none;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #28bf96;
+    transition: 0.3s;
+ }
+
+.appointment-container .btn:hover{
+   background-color: orange;
 }
 
-.submit-button:hover {
-    background-color: #218838;
-}
-#phone{
-    width: 345px;
+/* #phone{
+    width: 375px;
     height:43px;
-}
-.phone-input::placeholder {
-    color: #888; /* Light gray color for placeholder text */
-}
+} */
+/*  */
+
