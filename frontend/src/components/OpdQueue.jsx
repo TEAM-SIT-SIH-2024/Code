@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./OpdQueue.css"
 
 const OPDQueue = () => {
     const [queue, setQueue] = useState([]);
@@ -41,19 +42,28 @@ const OPDQueue = () => {
     if (loading) return <p>Loading queue...</p>;
 
     return (
-        <div>
-            <h2>OPD Queue Management</h2>
-            <h3>
-                Current Patient: {currentPatient ? `${currentPatient.name.first} ${currentPatient.name.last}` : "None"}
+        <div className="opd-queue-container">
+        <h2 className="title">OPD Queue Management</h2>
+        <div className="current-patient-info">
+            <h3 className="current-patient-title">
+                Current Patient: 
+                <span className="current-patient-name">
+                    {currentPatient ? `${currentPatient.name.first} ${currentPatient.name.last}` : "None"}
+                </span>
             </h3>
-            <button onClick={callNextPatient}>Call Next Patient</button>
-            <h4>Queue:</h4>
-            <ul>
+            <button className="call-next-button" onClick={callNextPatient}>Call Next Patient</button>
+        </div>
+        <div className="queue-section">
+            <h4 className="queue-title">Queue:</h4>
+            <ul className="queue-list">
                 {queue.map((patient, index) => (
-                    <li key={index}>{`${patient.name.first} ${patient.name.last}`}</li>
+                    <li key={index} className="queue-item">
+                        {`${patient.name.first} ${patient.name.last}`}
+                    </li>
                 ))}
             </ul>
         </div>
+    </div>
     );
 };
 

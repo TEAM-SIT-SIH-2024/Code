@@ -12,8 +12,8 @@ function App() {
  {/*<Help></Help>*/}
 
  {/*<Home></Home>*/}
-  {/*<OPDQueue></OPDQueue>*/}
-  <HospitalAppointment></HospitalAppointment>
+  {<OPDQueue></OPDQueue>}
+  {/* <HospitalAppointment></HospitalAppointment> */}
   <Routes>
     {/*<Route path="/" element={<Login/>}/>*/}
     {/*<Route path="/SignUp" element={<SignUP/>}/>*/}
