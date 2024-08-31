@@ -15,7 +15,8 @@ export function Landing() {
           <ul className="nav__links">
             <li className="link"><a href="#home">Home</a></li>
             <li className="link"><a href="#about">About Us</a></li>
-            <li className="link"><a href="#beds">Services</a></li>
+            <li className="link"><a href="#services">Services</a></li>
+            <li className="link"><a href="#beds">City</a></li>
             <li className="link"><a href="#">Admin Login</a></li>
           </ul>
           <button className="btn">Help & Support</button>
@@ -99,7 +100,7 @@ export function Landing() {
         </div>
       </section>
 
-      <section className="section__container why__container" id="beds">
+      <section className="section__container why__container" id="services">
         <div className="why__image">
           <img src="../../assets/images/choose-us.jpg" alt="Why Choose Us" />
         </div>
