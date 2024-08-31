@@ -15,7 +15,8 @@ export function Landing() {
           <ul className="nav__links">
             <li className="link"><a href="#home">Home</a></li>
             <li className="link"><a href="#about">About Us</a></li>
-            <li className="link"><a href="#beds">Beds</a></li>
+            <li className="link"><a href="#beds">Services</a></li>
+            <li className="link"><a href="#">Admin Login</a></li>
           </ul>
           <button className="btn">Help & Support</button>
         </nav>
