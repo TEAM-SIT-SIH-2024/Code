@@ -26,7 +26,7 @@ const HospitalAppointment = () => {
     };
 
     return (
-        <div >
+        <div id='shan'>
         <div className='appointment-container'>
              {/* <img src="./src/components/Appoint.jpg" />*/}
             <h2>Book an Appointment</h2>

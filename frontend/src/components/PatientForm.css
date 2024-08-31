@@ -1,0 +1,79 @@
+/* Background color for the main container */
+#SH {
+    
+    background-image: url('./add1.png');
+    background-size: cover;
+    padding: 20px; /* Add some padding around the container */
+
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* Styling the header */
+h1 {
+    text-align: center; /* Center text horizontally */
+    margin: 100 auto; /* Center block-level elements horizontally */
+    padding: 20px; /* Optional: Add padding around the header */
+    font-size: 24px; /* Optional: Adjust font size as needed */
+    color: #333; /* Optional: Set header text color */
+    font-size: xx-large;
+    padding-left: 250px;
+    
+}
+
+/* Form container styling */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 600px; /* Increased width for the form */
+    margin: 20px auto; /* Center the form */
+    padding: 20px; /* Padding inside the form */
+    background-color: white; /* Background color for the form area */
+    border: 2px solid black; /* Black border for the form */
+    border-radius: 5px; /* Rounded corners */
+    border-radius: 40px;
+    box-shadow: 8px 8px rgb(167, 161, 161);
+}
+
+/* Styling for form elements */
+form div {
+    margin-bottom: 15px;
+    box-shadow:#111010;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input,
+form select,
+form textarea {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%; /* Make input elements take full width of form */
+}
+
+/* Styling the submit button */
+form button {
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    border-radius: 0.8%;
+}
+#btn{
+    border-radius: 30px;
+}
+form button:hover {
+    background-color: #007bff; /* Darker blue on hover */
+}
+.moveform{
+    position: relative;
+    box-shadow: #01000000;
+    left: 100px;
+}

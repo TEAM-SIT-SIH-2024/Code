@@ -5,15 +5,16 @@ import Home from "./components/Home";
 import OPDQueue from "./components/OpdQueue";
 import Help from "./components/Help";
 import HospitalAppointment from "./components/Appointment";
+import PatientForm from "./components/PatientForm";
 
 function App() {
   return <>
  
  {/*<Help></Help>*/}
-
+<PatientForm></PatientForm>
  {/*<Home></Home>*/}
   {/*<OPDQueue></OPDQueue>*/}
-  <HospitalAppointment></HospitalAppointment>
+  {/*<HospitalAppointment></HospitalAppointment>*/}
   <Routes>
     {/*<Route path="/" element={<Login/>}/>*/}
     {/*<Route path="/SignUp" element={<SignUP/>}/>*/}
