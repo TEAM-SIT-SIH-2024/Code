@@ -3,11 +3,13 @@ import { useRecoilValueLoadable, useRecoilState } from "recoil";
 import { hospitalDetailsSelector } from "../store/selectors/HospitalDetailsSelector";
 import { selectedHospitalAtom, appointmentDetailsAtom } from "../store/atoms/AppointmentAtom";
 import { citiesListAtom } from "../store/atoms/CityAtom";
+import Login from "./Login";
 
 export function Cities({ requiredCity }) {
   const [viewHospitals, setViewHospitals] = useState(false);
   const [selectedHospital, setSelectedHospital] = useRecoilState(selectedHospitalAtom);
   const [appointmentDetails, setAppointmentDetails] = useRecoilState(appointmentDetailsAtom);
+  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token")); // Check if the token is in localStorage
   
   const hospitalIds = requiredCity.hospitals;
   const hospitalDetailsLoadable = useRecoilValueLoadable(hospitalDetailsSelector(hospitalIds));
@@ -17,8 +19,27 @@ export function Cities({ requiredCity }) {
     setViewHospitals(true);
   };
 
-  const handleBookAppointmentClick = (hospital) => {
-    setSelectedHospital(hospital);
+  const handleBookAppointmentClick = async (hospital) => {
+    e.preventDefault(); 
+    if (!isAuthenticated) {
+      try {
+        const response = await fetch("loclahost:5173/user/signin", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({
+            ...appointmentDetails,
+            hospitalId: selectedHospital._id,
+          }),
+        });
+      
+    }
+    finally {
+      setSelectedHospital(hospital);
+    }
+  }
   };
 
   const handleInputChange = (e) => {
@@ -28,17 +49,13 @@ export function Cities({ requiredCity }) {
     });
   };
 
-  const handleAppointmentSubmit = async () => {
+  const handleAppointmentSubmit = async (e) => {
     try {
       const response = await fetch("/api/hospital/appointment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`, 
-//           const token = response.data.token;
-
-// // Store the token in localStorage
-// localStorage.setItem("token", token);
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify({
           ...appointmentDetails,
@@ -122,12 +139,12 @@ export function Cities({ requiredCity }) {
                 <div>Name: {hospital.username}</div>
                 <div>City: {hospital.city}</div>
                 <div>Beds available: {hospital.beds}</div>
-                <button onClick={() => handleBookAppointmentClick(hospital)}>OPD Appointment</button>
+                <button onClick={() => handleBookAppointmentClick(hospital)}> <a href="/login" >OPD Appointment</a> </button>
               </li>
             ))}
           </ul>
 
-          {selectedHospital && (
+          {selectedHospital && isAuthenticated && (
             <div>
               <h4>Book Appointment at {selectedHospital.username}</h4>
               <input
