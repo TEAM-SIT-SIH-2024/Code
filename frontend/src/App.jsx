@@ -13,10 +13,10 @@ function App() {
  {/*<Home></Home>*/}
   {/*<OPDQueue></OPDQueue>*/}
   {/* {<SignUP></SignUP>} */}
-  {/* <Login></Login> */}
+  <Login></Login>
   <Routes>
-    <Route path="/" element={<Login></Login>}/>
-    <Route path="/SignUp" element={<SignUP/>}/>
+    {/* <Route path="/" element={<Login></Login>}/> */}
+    {/* <Route path="/SignUp" element={<SignUP/>}/> */}
   </Routes>
   </>;
 }
