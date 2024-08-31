@@ -1,57 +1,77 @@
-/* styles.css */
+/* General Styles */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  header {
-    background-color: #f8f9fa;
-    padding: 10px;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .align-right {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  nav ul li {
-    margin: 0 10px;
-  }
-  
-  nav ul li button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-  }
-  
-  nav ul li button:hover {
-    background-color: #0056b3;
-  }
-  
-  .another-right {
-    margin-left: auto;
-    display: flex;
-    gap: 10px;
-  }
-  
-  p {
-    margin-right: 20px;
-    font-weight: bold;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+  background-color: #1c84f3;
+  color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 40px 8px rgba(231, 173, 173, 0.1);
+}
+
+/* Center the Booking Page Text */
+.navbar-center {
+  flex-grow: 1;
+  text-align: left;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Navbar List */
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Alignments */
+.another-right {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
