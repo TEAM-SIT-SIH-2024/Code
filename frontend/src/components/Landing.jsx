@@ -13,16 +13,16 @@ export function Landing() {
             <div className="nav__logo">MediQueue</div>
           </div>
           <ul className="nav__links">
-            <li className="link"><a href="#">Home</a></li>
-            <li className="link"><a href="#">About Us</a></li>
-            <li className="link"><a href="#">Beds</a></li>
+            <li className="link"><a href="#home">Home</a></li>
+            <li className="link"><a href="#about">About Us</a></li>
+            <li className="link"><a href="#beds">Beds</a></li>
           </ul>
           <button className="btn">Help & Support</button>
         </nav>
       </div>
 
-      <header>
-        <div className="section__container header__container" id="home">
+      <header id="home">
+        <div className="section__container header__container">
           <div className="header__content">
             <h1>Empowering Your Health with Care and Innovation</h1>
             <br />
@@ -98,7 +98,7 @@ export function Landing() {
         </div>
       </section>
 
-      <section className="section__container why__container" id="blog">
+      <section className="section__container why__container" id="beds">
         <div className="why__image">
           <img src="../../assets/images/choose-us.jpg" alt="Why Choose Us" />
         </div>
@@ -150,8 +150,8 @@ export function Landing() {
           </div>
           <div className="footer__col">
             <h4>About Us</h4>
-            <p>Home</p>
-            <p>About Us</p>
+            <p><a href="#home">Home</a></p>
+            <p><a href="#about">About Us</a></p>
             <p>Work With Us</p>
             <p>Our Blog</p>
             <p>Terms & Conditions</p>
