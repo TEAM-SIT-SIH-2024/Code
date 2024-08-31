@@ -85,7 +85,7 @@ const HospitalAppointment = () => {
                     />
                 </div>
               
-                <button type="submit" className='form-group btn'>Submit</button>
+                <button type="submit" className='btn'>Submit</button>
             </form>
         </div>
         </div>
