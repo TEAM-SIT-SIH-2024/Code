@@ -1,21 +1,24 @@
 @import url("https://fonts.google.com/share?selection.family=Rosario:ital,wght@0,300..700;1,300..700");
 @import url("https://fonts.googleapis.com/css2?family=Rosario:ital,wght@0,300..700;1,300..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-:root {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* :root {
   --primary-color: #28bf96;
   --primary-color-dark: #209677;
   --text-dark: #111827;
   --text-light: #6b7280;
   --white: #ffffff;
-}
+} */
 
-* {
+/* * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
+} */
 
-.btn {
+/* .btn {
   padding: 1rem 2rem;
   outline: none;
   border: none;
@@ -24,62 +27,64 @@
   background-color: var(--primary-color);
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s;
-}
+  
+} */
 
 .btn:hover {
   background-color: var(--primary-color-dark);
 }
 
-body {
+/* body {
   font-family: "Roboto", sans-serif;
-}
+}  */
 
 .container {
   max-width: 1200px;
-  margin: auto;
+  margin: 10px 5px;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
+  
 }
 
 nav {
-  padding: 2rem 1rem;
+  padding: 3px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   gap: 1rem;
+ 
 }
 
-.nav__logo {
+/* .nav__logo {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--text-dark); 
 
     font-family: "Rosario", sans-serif;
     font-optical-sizing: auto;
     font-weight:700;
     font-style: normal;
   
-}
+} */
 
-.nav__links {
+/* .nav__links {
   list-style: none;
   display: flex;
   align-items: center;
   gap: 2rem;
-}
+} */
 
-.link a {
+/* .link a {
   text-decoration: none;
   color: var(--text-dark);
   cursor: pointer;
   transition: 0.3s;
-}
+} */
 
-.link a:hover {
+/* .link a:hover {
   color: var(--primary-color-dark);
-}
+} */
 
 
 /* .header {
@@ -207,7 +212,7 @@ nav {
     grid-area: 1/1/2/2;
   }
 } */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
 
 :root {
   --primary-color: #12ac8e;
@@ -219,6 +224,13 @@ nav {
   --white: #ffffff;
   --max-width: 1200px;
 }
+.nav__first{
+  display: flex;
+  justify-content: space-between;
+  gap:1rem;
+ 
+}
+
 
 * {
   padding: 0;
@@ -230,6 +242,7 @@ nav {
   max-width: var(--max-width);
   margin: auto;
   padding: 5rem 1rem;
+  min-height: 100vh;
 }
 
 .section__header {
@@ -249,9 +262,12 @@ nav {
   background-color: var(--secondary-color);
   border-radius: 5px;
   cursor: pointer;
+  transition: 0.3s;
+
 }
 #C{
-    width: 50px;
+    width: 70px;
+    cursor: pointer;
 }
 img {
   width: 100%;
@@ -260,6 +276,7 @@ img {
 
 a {
   text-decoration: none;
+  
 }
 
 html,
@@ -287,13 +304,18 @@ header {
   padding: 2rem 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .nav__logo {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 600;
   color: var(--primary-color-dark);
+  font-family: "Rosario", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:700;
+  font-style: normal;
+  cursor: pointer;
 }
 
 .nav__logo span {
@@ -306,22 +328,31 @@ header {
   align-items: center;
   justify-content: center;
   gap: 2rem;
+
+
 }
 
 .link a {
     text-decoration: none;
     /* color: var(--text-dark); */
+    font-size: 20px;
     cursor: pointer;
     transition: 0.3s;
-    font-weight: 500;
-    
+    font-weight: 0;
+    color:black;
   padding: 0.5rem;
+  
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
   /* color: var(--primary-color-light); */
 }
 
 .link a:hover {
 
-  color:green;
+  color: var(--primary-color-dark);
+  text-decoration: underline;
 }
 
 .header__container {
@@ -342,6 +373,7 @@ header {
   margin-bottom: 2rem;
   max-width: 600px;
   color: var(--primary-color-light);
+  font-size: large;
 }
 
 .header__form {
@@ -622,12 +654,14 @@ header {
 
 .footer {
   background-color: var(--primary-color-light);
+  
 }
 
 .footer__container {
   display: grid;
   grid-template-columns: 400px repeat(3, 1fr);
   gap: 2rem;
+  height: 50vh;
 }
 
 .footer__col h3 {
