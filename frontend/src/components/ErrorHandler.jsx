@@ -1,4 +1,4 @@
-import '../../styles/error.css';
+// import '../../styles/error.css';
 
 export function  ErrorHandler(){
   return (

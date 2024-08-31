@@ -1,9 +1,9 @@
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import '../../styles/index.css';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
-import '../../styles/userSignUp.css';
+// import '../../styles/index.css';
+// import 'bootstrap/dist/css/bootstrap.min.css'; 
+// import '../../styles/userSignUp.css';
 
 
 export function AdminSignin() {
