@@ -4,22 +4,23 @@ import SignUP from "./components/SignUp";
 import Home from "./components/Home";
 import OPDQueue from "./components/OpdQueue";
 import Help from "./components/Help";
+import HospitalAppointment from "./components/Appointment";
 
 function App() {
   return <>
-  {/*<Login></Login>*/}
-  {/*<SignUP></SignUP>*/}
- <Help></Help>
+ 
+ {/*<Help></Help>*/}
 
  {/*<Home></Home>*/}
-  {/*<OPDQueue></OPDQueue>*/}
-  {/*<Routes>*/}
+  <OPDQueue></OPDQueue>
+  {/*<HospitalAppointment></HospitalAppointment>*/}
+  <Routes>
     {/*<Route path="/" element={<Login/>}/>*/}
     {/*<Route path="/SignUp" element={<SignUP/>}/>*/}
    
 
    
-  {/*</Routes>*/}
+  </Routes>
   </>;
 }
 
