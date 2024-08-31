@@ -1,10 +1,10 @@
-import React from 'react'
-import "../../styles/Home.css"
+import React from 'react';
+import "../../styles/Home.css";
 
 export function Landing() {
   return (
     <div>
-      <div className="container">
+      {/* <div className="container"> */}
         <nav>
           <div className="nav__first">
             <div>
@@ -12,16 +12,17 @@ export function Landing() {
             </div>
             <div className="nav__logo">MediQueue</div>
           </div>
+          <div className="cont">
           <ul className="nav__links">
             <li className="link"><a href="#home">Home</a></li>
             <li className="link"><a href="#about">About Us</a></li>
             <li className="link"><a href="#services">Services</a></li>
-            <li className="link"><a href="#beds">City</a></li>
+            <li className="link"><a href="/cities">City</a></li>
             <li className="link"><a href="#">Admin Login</a></li>
           </ul>
-          <button className="btn">Help & Support</button>
+          <button className="btn service__btn topBtn help">Help & Support</button></div>
         </nav>
-      </div>
+      {/* </div> */}
 
       <header id="home">
         <div className="section__container header__container">
@@ -33,12 +34,11 @@ export function Landing() {
               advanced facilities and compassionate team. We are dedicated to providing you with the best care possible.
             </p>
             <br />
-            <button className="btn">See Services</button>
           </div>
         </div>
       </header>
 
-      <section className="section__container service__container" id="service">
+      <section className="section__container service__container" id="services">
         <div className="service__header">
           <div className="service__header__content">
             <h2 className="section__header">Our Special Services</h2>
@@ -97,42 +97,6 @@ export function Landing() {
         </div>
         <div className="about__image">
           <img src="../../assets/images/about.jpg" alt="About Us" />
-        </div>
-      </section>
-
-      <section className="section__container why__container" id="services">
-        <div className="why__image">
-          <img src="../../assets/images/choose-us.jpg" alt="Why Choose Us" />
-        </div>
-        <div className="why__content">
-          <h2 className="section__header">Why Choose Us</h2>
-          <p>
-            With a focus on innovation and efficiency, our advanced bed occupancy detection system ensures that hospital 
-            resources are managed effectively, providing you with timely and exceptional patient care.
-          </p>
-          <div className="why__grid">
-            <span><i className="ri-hand-heart-line"></i></span>
-            <div>
-              <h4>Optimized Patient Flow</h4>
-              <p>
-                Our system enhances patient flow by accurately detecting bed occupancy, ensuring that each patient receives prompt attention and care.
-              </p>
-            </div>
-            <span><i className="ri-truck-line"></i></span>
-            <div>
-              <h4>Real-Time Bed Tracking</h4>
-              <p>
-                We offer real-time bed availability updates, enabling seamless coordination between departments and minimizing patient wait times.
-              </p>
-            </div>
-            <span><i className="ri-hospital-line"></i></span>
-            <div>
-              <h4>Efficient Resource Management</h4>
-              <p>
-                Our technology-driven approach ensures that hospital beds are utilized efficiently, allowing healthcare providers to focus on delivering the best medical and surgical care.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 

@@ -242,7 +242,8 @@ nav {
   max-width: var(--max-width);
   margin: auto;
   padding: 5rem 1rem;
-  min-height: 100vh;
+  min-height: 20vh;
+
 }
 
 .section__header {
@@ -802,4 +803,29 @@ header {
     flex-direction: column;
     gap: 1rem;
   }
+}
+
+
+.cont{
+  display: flex;
+  align-items: flex-end;
+  padding-right: 15px;
+}
+
+nav{
+  height: 100px;
+  width: 100%;
+  background-color: #e9f7f7;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.topBtn{
+  position: relative;
+  top: 8px;
+}
+
+.help{
+  margin-left: 100px;
 }
