@@ -1,24 +1,29 @@
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-  }
-  .header-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: black;
-      text-align: center;
-    }
-  p{
-    font-size: x-large;
-    color: black;
-  }
-    .error-image {
-      height: 150px;
-      width: 150px;
-      height: auto;
-      margin-top: 20px;
-    }
-    
+.ErrorBody {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  background-color: white;
+  margin: 0; 
+  padding: 0; 
+}
+
+.Errheader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  text-align: center;
+}
+
+.Ep {
+  font-size: x-large;
+  color: black;
+}
+
+.error-image {
+  width: 150px;
+  height: auto;
+  margin-top: 20px; /* Add some spacing between the text and image */
+}
