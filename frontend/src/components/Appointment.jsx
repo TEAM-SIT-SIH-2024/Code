@@ -27,6 +27,10 @@ export function Appointment() {
             [name]: value
         });
     };
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        navigate('/');
+      };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -65,6 +69,26 @@ export function Appointment() {
     }
 
     return (
+        <div>
+        <div className="container">
+        <nav>
+          <div className="nav__first">
+            <div>
+              <img className="SIHimg" src="../../assets/images/SIH.png" id='C' alt="Logo" />
+            </div>
+            <div className="nav__logo">MediQueue</div>
+          </div>
+          <div className='cont'>
+          <ul className="nav__links">
+            <li className="link"><a href="/">Home</a></li>
+            <li className="link"><a href="/#about">About Us</a></li>
+            <li className="link"><a href="/#services">Services</a></li>
+            <li className="link"><a href="/cities">City</a></li>
+          </ul>
+          <button className="btn service__btn topBtn help" onClick={handleLogout}>Logout</button>
+          <button className="btn service__btn topBtn help">Help & Support</button></div>
+        </nav>
+      </div>
         <div id="appointment">
             <div className='appointment-container'>
                 <h2>Book an Appointment</h2>
@@ -121,6 +145,7 @@ export function Appointment() {
                     <button type="submit" className='btn'>Submit</button>
                 </form>
             </div>
+        </div>
         </div>
     );
 };
