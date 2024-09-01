@@ -31,7 +31,7 @@ export function Cities({ requiredCity }) {
             <ul>
               {cities.map((city) => (
                 <li key={city._id}>
-                  <h4>{city.name}</h4>
+                  <h4>{city.name.toUpperCase()}</h4>
                   <div>This city currently has {city.hospitals.length} hospitals</div>
                   <button onClick={() => handleViewClick(city)}>View Hospitals</button>
                 </li>
@@ -50,7 +50,7 @@ export function Cities({ requiredCity }) {
 
   return (
     <div>
-      <h3>{requiredCity.name}</h3>
+      <h3>{requiredCity.name.toUpperCase()}</h3>
       <div>This city currently has {requiredCity.hospitals.length} hospitals</div>
       <button onClick={handleViewClick}>View</button>
     </div>

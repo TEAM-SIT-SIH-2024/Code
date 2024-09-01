@@ -38,9 +38,9 @@ export function AdminSignup() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          username: formData.name,
+          username: formData.name.toLowerCase(),
           password: formData.password,
-          city: formData.city,
+          city: formData.city.toLowerCase(),
           beds: formData.beds,
           opdTime: formData.opdTime,
         }),
@@ -196,7 +196,7 @@ export function AdminSignin() {
               <input
                 type="text"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => setUsername(e.target.value.toLowerCase())}
                 required
               />
               <label>Username</label>
@@ -215,7 +215,7 @@ export function AdminSignin() {
               <input
                 type="text"
                 value={city}
-                onChange={(e) => setCity(e.target.value)}
+                onChange={(e) => setCity(e.target.value.toLowerCase())}
                 required
               />
               <label>City</label>
@@ -284,7 +284,7 @@ export function UserSignin() {
                                 type="text"
                                 name="username"
                                 value={username}
-                                onChange={(e) => setUsername(e.target.value)}
+                                onChange={(e) => setUsername(e.target.value.toLowerCase())}
                                 required
                             />
                             <label>Username</label>
@@ -346,7 +346,7 @@ export function UserSignup() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    username: formData.username,
+                    username: formData.username.toLowerCase(),
                     password: formData.password,
                 }),
             });
