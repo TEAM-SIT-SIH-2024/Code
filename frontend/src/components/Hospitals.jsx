@@ -5,7 +5,7 @@ import { selectedHospitalAtom, appointmentDetailsAtom } from "../store/atoms/App
 
 export function Hospitals() {
   const location = useLocation();
-  const { requiredCity } = location.state || {}; // Access the passed state
+  const { requiredCity } = location.state || {};
 
   const [selectedHospital, setSelectedHospital] = useRecoilState(selectedHospitalAtom);
   const [appointmentDetails, setAppointmentDetails] = useRecoilState(appointmentDetailsAtom);

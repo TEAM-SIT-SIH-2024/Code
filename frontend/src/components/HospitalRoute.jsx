@@ -1,20 +1,25 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {ErrorHandler} from "./ErrorHandler"
+import { ErrorHandler } from "./ErrorHandler";
 
 export function HospitalRoute() {
-//   const navigate = useNavigate();
-//   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
 
-//   useEffect(() => {
-//     if (!token) {
-//       navigate('/Admin/signin');
-//     }
-//   }, [token]);
+  useEffect(() => {
+    if (!token) {
+      navigate('/Admin/signin');
+    }
+  }, [token, navigate]);
 
-//   if(!token){
-//     return <ErrorHandler/>
-//   }
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/Admin/signin');
+  };
+
+  if (!token) {
+    return <ErrorHandler />;
+  }
 
   return (
     <div>
@@ -27,14 +32,15 @@ export function HospitalRoute() {
             <div className="nav__logo">MediQueue</div>
           </div>
           <div className='cont'>
-          <ul className="nav__links">
-            <li className="link"><a href="#home">Home</a></li>
-            <li className="link"><a href="#about">About Us</a></li>
-            <li className="link"><a href="#services">Services</a></li>
-            <li className="link"><a href="/Admin/opdQueue">OPD Queue</a></li>
-            <li className="link"><a href="/Admin/Admission">Admission</a></li>
-          </ul>
-          <button className="btn service__btn topBtn help">Help & Support</button></div>
+            <ul className="nav__links">
+              <li className="link"><a href="#home">Home</a></li>
+              <li className="link"><a href="#about">About Us</a></li>
+              <li className="link"><a href="#services">Services</a></li>
+              <li className="link"><a href="/Admin/opdQueue">OPD Queue</a></li>
+              <li className="link"><a href="/Admin/Admission">Admission</a></li>
+            </ul>
+            <button className="btn service__btn topBtn help" onClick={handleLogout}>Logout</button> {/* Added Logout Button */}
+          </div>
         </nav>
       </div>
 
@@ -199,5 +205,5 @@ export function HospitalRoute() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
