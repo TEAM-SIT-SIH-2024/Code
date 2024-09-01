@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {useRecoilState} from "recoil"
+import {selectedHospitalAtom} from "../store/atoms/AppointmentAtom"
 // import './HospitalAppointment.css';
 
 export function Appointment() {
+    const [selectedHospital, setSelectedHospital] = useRecoilState(selectedHospitalAtom);
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
@@ -41,7 +44,13 @@ export function Appointment() {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
-                body: JSON.stringify(formData),
+                body: {
+                    name:formData.name, 
+                    purpose:formData.purpose, 
+                    time:formData.time,
+                    phone:formData.phone, 
+                    hospitalId:selectedHospital
+                },
             });
 
             if (response.ok) {
