@@ -829,3 +829,12 @@ nav{
 .help{
   margin-left: 100px;
 }
+#home{
+  scroll-margin-top: 110px;
+}
+#about{
+  scroll-margin-top: 50px;
+}
+#services{
+  scroll-margin-top: 80px;
+}

@@ -9,6 +9,7 @@ import { Admission } from "./components/Admission";
 import { RecoilRoot } from "recoil";
 import { Hospitals } from "./components/Hospitals";
 import { Appointment } from "./components/Appointment";
+import {Support} from "./components/Support";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/User/signup" element={<UserSignup />} />
           <Route path="/Admin/opdQueue" element={<OPDQueue />} />
           <Route path="/Admin/Admission" element={<Admission />} />
+          <Route path="/Support" element={<Support/>}/>
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

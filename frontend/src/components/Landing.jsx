@@ -1,10 +1,15 @@
 import React from 'react'
 import "../../styles/Home.css"
+import {useNavigate} from "react-router-dom";
 
 export function Landing() {
+  const navigate=useNavigate();
+  function handleClick(){
+    navigate("/Support");
+  }
   return (
     <div>
-      <div className="container">
+     {/* <div className="container">*/}
         <nav>
           <div className="nav__first">
             <div>
@@ -20,9 +25,9 @@ export function Landing() {
             <li className="link"><a href="/cities">City</a></li>
             <li className="link"><a href="/Admin">Admin Login</a></li>
           </ul>
-          <button className="btn service__btn topBtn help">Help & Support</button></div>
+          <button onClick={handleClick} className="btn service__btn topBtn help">Help & Support</button></div>
         </nav>
-      </div>
+      {/*</div>*/}
 
       <header id="home">
         <div className="section__container header__container">
@@ -76,7 +81,7 @@ export function Landing() {
 
       <section className="section__container about__container" id="about">
         <div className="about__content">
-          <h2 className="section__header">About Us</h2>
+          <h2 className="section__header">AbouttoLowerCase() Us</h2>
           <p>
             Welcome to our healthcare system, your go-to platform for innovative solutions in hospital management and patient care. 
             We are dedicated to enhancing healthcare efficiency and ensuring that patients receive timely and effective care.
