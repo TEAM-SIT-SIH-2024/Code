@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(
-  "mongodb+srv://admin:tL8mBWGUkmz2720S@cluster0.scziuv1.mongodb.net/HospitalManagementSystem"
-);
+mongoose.connect("mongo_URL");
 
 const patientSchema = new mongoose.Schema({
   fullName: { type: String, required: true },
