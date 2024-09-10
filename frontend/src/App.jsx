@@ -4,11 +4,12 @@ import { Landing } from "./components/Landing";
 import { CityModule } from "./components/CityModule";
 import { HospitalRoute } from "./components/HospitalRoute";
 import { AdminSignin, AdminSignup, UserSignin, UserSignup } from "./components/Login";
-import { OPDQueue } from "./components/opdQ";
+import { OPDQueue } from "./components/OPDQueue";
 import { Admission } from "./components/Admission";
 import { RecoilRoot } from "recoil";
 import { Hospitals } from "./components/Hospitals";
 import { Appointment } from "./components/Appointment";
+import {Support} from "./components/Support";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/User/signup" element={<UserSignup />} />
           <Route path="/Admin/opdQueue" element={<OPDQueue />} />
           <Route path="/Admin/Admission" element={<Admission />} />
+          <Route path="/Support" element={<Support/>}/>
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

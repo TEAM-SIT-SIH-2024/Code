@@ -1,0 +1,109 @@
+/* General Styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f6f7;
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png'); /* Light animated background */
+    background-size: cover;
+}
+
+/* Container Styling */
+.opd-queue-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    font-family: inherit;
+}
+
+/* Title Styling */
+.title {
+    font-size: 34px; /* Enlarged title */
+    color: #209677;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 800; /* Increased font weight */
+    letter-spacing: 1px;
+}
+
+/* Current Patient Section */
+.current-patient-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.current-patient-title {
+    font-size: 24px; /* Slightly larger font size */
+    color: #34495e;
+    margin-bottom: 10px;
+    font-weight: 700; /* Increased font weight */
+}
+
+.current-patient-name {
+    display: block;
+    font-size: 26px; /* Larger font for patient name */
+    color: #16a085;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Button Styling */
+.call-next-button {
+    background-color: #ffffff; /* White box background */
+    color: #209677; /* Light green text */
+    border: 2px solid #209677; /* Light green border */
+    padding: 14px 28px; /* Larger padding */
+    border-radius: 8px; /* More rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-size: 20px; /* Larger font size */
+    font-weight: 700; /* Increased font weight */
+    margin-top: 15px;
+}
+
+.call-next-button:hover {
+    background-color: #209677; /* Light green background */
+    color: #ffffff; /* White text */
+    transform: translateY(-2px);
+}
+
+/* Queue Section Styling */
+.queue-section {
+    margin-top: 30px;
+}
+
+.queue-title {
+    font-size: 26px; /* Larger font size */
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Queue List Styling */
+.queue-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.queue-item {
+    background-color: #28bf96;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.queue-item:hover {
+    transform: translateY(-3px);
+    background-color: #1e9178;
+}

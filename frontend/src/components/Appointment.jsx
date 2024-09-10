@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import './HospitalAppointment.css';
+import "../../styles/HospitalAppointment.css";
 
 export function Appointment() {
     const navigate = useNavigate();
