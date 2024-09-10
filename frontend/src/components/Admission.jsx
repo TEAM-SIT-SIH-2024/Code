@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import './PatientForm.css';
+import "../../styles/PatientForm.css";
 
 
 export function Admission(){
@@ -35,11 +35,11 @@ export function Admission(){
   return (
     <div id='SH'>
     <div >
-      <h1>Patient Registration Form</h1>
+      <h1 className='h1'>Patient Registration Form</h1>
       <div className='moveform'>
-      <form onSubmit={handleSubmit}>
+      <form className='form' onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">Name:</label>
+          <label className='label' htmlFor="name">Name:</label>
           <input
           placeholder='Enter your name'
             type="text"
@@ -51,7 +51,7 @@ export function Admission(){
           />
         </div>
         <div>
-          <label htmlFor="gender">Gender:</label>
+          <label className='label' htmlFor="gender">Gender:</label>
           <select
             id="gender"
             name="gender"
@@ -66,7 +66,7 @@ export function Admission(){
           </select>
         </div>
         <div>
-          <label htmlFor="dob">Date of Birth:</label>
+          <label className='label' htmlFor="dob">Date of Birth:</label>
           <input
             type="date"
             id="dob"
@@ -77,7 +77,7 @@ export function Admission(){
           />
         </div>
         <div>
-          <label htmlFor="mobile">Mobile:</label>
+          <label className='label' htmlFor="mobile">Mobile:</label>
           <input
             placeholder='Enter your Mobile Number'
             type="tel"
@@ -89,7 +89,7 @@ export function Admission(){
           />
         </div>
         <div>
-          <label htmlFor="aadhar">Aadhar Number:</label>
+          <label className='label' htmlFor="aadhar">Aadhar Number:</label>
           <input
             placeholder='Enter your Aadhar Number'
             type="text"
@@ -101,7 +101,7 @@ export function Admission(){
           />
         </div>
         <div>
-          <label htmlFor="email">Email:</label>
+          <label className='label' htmlFor="email">Email:</label>
           <input
             placeholder='Enter your Email'
             type="email"
@@ -113,7 +113,7 @@ export function Admission(){
           />
         </div>
         <div>
-          <label htmlFor="address">Address:</label>
+          <label className='label' htmlFor="address">Address:</label>
           <textarea
             placeholder='Enter Address'
             id="address"
@@ -124,7 +124,7 @@ export function Admission(){
           ></textarea>
         </div>
         <div>
-          <label htmlFor="category">Category:</label>
+          <label className='label' htmlFor="category">Category:</label>
           <select
             id="category"
             name="category"

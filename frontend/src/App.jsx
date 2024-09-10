@@ -4,7 +4,7 @@ import { Landing } from "./components/Landing";
 import { CityModule } from "./components/CityModule";
 import { HospitalRoute } from "./components/HospitalRoute";
 import { AdminSignin, AdminSignup, UserSignin, UserSignup } from "./components/Login";
-import { OPDQueue } from "./components/opdQ";
+import { OPDQueue } from "./components/OPDQueue";
 import { Admission } from "./components/Admission";
 import { RecoilRoot } from "recoil";
 import { Hospitals } from "./components/Hospitals";

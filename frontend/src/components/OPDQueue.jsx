@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import '../../styles/OpdQueue.css';
 
-const OPDQueue = () => {
+export const OPDQueue = () => {
     const [queue, setQueue] = useState([]);
     const [currentPatient, setCurrentPatient] = useState(null);
     const [loading, setLoading] = useState(true);

@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 // import '../../styles/index.css';
 // import 'bootstrap/dist/css/bootstrap.min.css'; 
-// import '../../styles/userSignUp.css';
-// import '../../styles/UserSignin.css';
+import '../../styles/userSignUp.css';
+import '../../styles/UserSignin.css';
+import '../../styles/AdminSignUp.css';
+import '../../styles/AdminSignin.css';
 
 export function AdminSignup() {
   const [formData, setFormData] = useState({
@@ -68,80 +70,80 @@ export function AdminSignup() {
   };
 
   return (
-    <div className="section">
-      <Helmet>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-      </Helmet>
-      <div className="form-box">
-        <div className="form-value">
-          <form onSubmit={handleSubmit}>
-            <h2>Sign Up</h2>
-            <div className="inputbox">
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-              />
-              <label>Name</label>
-            </div>
-            <div className="inputbox">
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                required
-              />
-              <label>Password</label>
-            </div>
-            <div className="inputbox">
-              <input
-                type="password"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleInputChange}
-                required
-              />
-              <label>Confirm Password</label>
-            </div>
-            <div className="inputbox">
-              <input
-                type="text"
-                name="beds"
-                value={formData.beds}
-                onChange={handleInputChange}
-                required
-              />
-              <label>Beds</label>
-            </div>
-            <div className="inputbox">
-              <input
-                type="text"
-                name="opdTime"
-                value={formData.opdTime}
-                onChange={handleInputChange}
-                required
-              />
-              <label>OPD Time</label>
-            </div>
-            <div className="inputbox">
-              <input
-                type="text"
-                name="city"
-                value={formData.city}
-                onChange={handleInputChange}
-                required
-              />
-              <label>City</label>
-            </div>
-            <button type="submit" className="btn btn-dark btn-block">Sign Up</button>
-          </form>
-        </div>
+    <div className="AdSpsection">
+    <Helmet>
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </Helmet>
+    <div className="AdSpform-box">
+      <div className="AdSpform-value">
+        <form onSubmit={handleSubmit}>
+          <h2 className='AdSph2'>Sign Up</h2>
+          <div className="AdSpinputbox">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+            />
+            <label>Name</label>
+          </div>
+          <div className="AdSpinputbox">
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              required
+            />
+            <label>Password</label>
+          </div>
+          <div className="AdSpinputbox">
+            <input
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleInputChange}
+              required
+            />
+            <label>Confirm Password</label>
+          </div>
+          <div className="AdSpinputbox">
+            <input
+              type="text"
+              name="beds"
+              value={formData.beds}
+              onChange={handleInputChange}
+              required
+            />
+            <label>Beds</label>
+          </div>
+          <div className="AdSpinputbox">
+            <input
+              type="text"
+              name="opdTime"
+              value={formData.opdTime}
+              onChange={handleInputChange}
+              required
+            />
+            <label>OPD Time</label>
+          </div>
+          <div className="AdSpinputbox">
+            <input
+              type="text"
+              name="city"
+              value={formData.city}
+              onChange={handleInputChange}
+              required
+            />
+            <label>City</label>
+          </div>
+          <button type="submit" className="btn btn-dark btn-block">Sign Up</button>
+        </form>
       </div>
+    </div>
     </div>
   );
 }
@@ -182,16 +184,16 @@ export function AdminSignin() {
   };
 
   return (
-    <div className="section">
+    <div className="Adsection">
       <Helmet>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
       </Helmet>
-      <div className="form-box">
-        <div className="form-value">
+      <div className="Adform-box">
+        <div className="Adform-value">
           <form onSubmit={handleSubmit}>
-            <h2>Login</h2>
-            <div className="inputbox">
+            <h2 className='Adh2'>Login</h2>
+            <div className="Adinputbox">
               <ion-icon name="mail-outline"></ion-icon>
               <input
                 type="text"
@@ -201,7 +203,7 @@ export function AdminSignin() {
               />
               <label>Username</label>
             </div>
-            <div className="inputbox">
+            <div className="Adinputbox">
               <ion-icon name="lock-closed-outline"></ion-icon>
               <input
                 type="password"
@@ -211,7 +213,7 @@ export function AdminSignin() {
               />
               <label>Password</label>
             </div>
-            <div className="inputbox">
+            <div className="Adinputbox">
               <input
                 type="text"
                 value={city}
@@ -220,12 +222,12 @@ export function AdminSignin() {
               />
               <label>City</label>
             </div>
-            <div className="forget">
+            <div className="Adforget">
               <label><input type="checkbox"/> Remember Me</label>
               <a href="#">Forgot Password</a>
             </div>
             <button type="submit">Log In</button>
-            <div className="register">
+            <div className="Adregister">
               <p>Don't have an account?</p>
               <button onClick={handleClick}>SignUp</button>
             </div>

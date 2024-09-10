@@ -81,7 +81,7 @@ export function Landing() {
 
       <section className="section__container about__container" id="about">
         <div className="about__content">
-          <h2 className="section__header">AbouttoLowerCase() Us</h2>
+          <h2 className="section__header">About Us</h2>
           <p>
             Welcome to our healthcare system, your go-to platform for innovative solutions in hospital management and patient care. 
             We are dedicated to enhancing healthcare efficiency and ensuring that patients receive timely and effective care.
